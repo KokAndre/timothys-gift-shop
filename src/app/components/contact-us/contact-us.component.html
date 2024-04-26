@@ -1,0 +1,51 @@
+<p class="text-size-30 text-center mt-3">Contact us</p>
+
+<p class="text-center text-size-16">Hi all! Feel free to reach out to ask any questions or let us know if you have any
+  issues. We will reply in a timely manner.</p>
+
+<p class="text-center text-size-16">Mon-Fri from 9am to 5pm</p>
+
+<p class="text-center text-size-16"><b>Phone:</b> 083 675 1277</p>
+
+<p class="text-center text-size-16"><b>Email:</b> timothy@some-email.co.za</p>
+
+<p class="text-center text-size-16"><b>Address:</b> Wherever Tim Stays</p>
+
+<div class="col-8 mx-auto px-0 mt-2" [formGroup]="contactUsFormGroup">
+  <div class="row mx-0">
+    <mat-form-field class="col-6 mb-3">
+      <mat-label>Name</mat-label>
+      <input matInput required formControlName="nameControl" maxlength="30">
+      <mat-error *ngIf="nameControl?.hasError('required')">Name is required</mat-error>
+    </mat-form-field>
+    
+    <mat-form-field class="col-6 mb-3">
+      <mat-label>Surname</mat-label>
+      <input matInput required formControlName="surnameControl" maxlength="30">
+      <mat-error *ngIf="surnameControl?.hasError('required')">Surname is required</mat-error>
+    </mat-form-field>
+    
+    <mat-form-field class="col-6 mb-3">
+      <mat-label>Phone number</mat-label>
+      <input matInput required formControlName="phoneControl" maxlength="10">
+      <mat-error *ngIf="phoneControl?.hasError('required')">Phone number is required</mat-error>
+    </mat-form-field>
+    
+    <mat-form-field class="col-6 mb-3">
+      <mat-label>Email</mat-label>
+      <input matInput required formControlName="emailControl" maxlength="60">
+      <mat-error *ngIf="emailControl?.hasError('required')">Email is required</mat-error>
+    </mat-form-field>
+    
+    <mat-form-field class="col-12 mb-3">
+      <mat-label>Message</mat-label>
+      <textarea matInput required formControlName="messageControl" maxlength="300"></textarea>
+      <mat-error *ngIf="messageControl?.hasError('required')">Message is required</mat-error>
+    </mat-form-field>
+  </div>
+
+  <div class="row justify-content-center mb-5">
+    <button mat-raised-button color="primary" class="">Send</button>
+  </div>
+
+</div>

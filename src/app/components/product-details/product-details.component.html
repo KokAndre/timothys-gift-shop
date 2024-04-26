@@ -1,0 +1,29 @@
+<div class="row mx-0">
+  <div class="col-6">
+    <div class="">
+      <img src="../../../.././../assets/products/{{ selectedProduct.imageName }}"
+        class="product-details-image mx-auto" />
+    </div>
+  </div>
+  <div class="col-6 relative-container">
+    <p class="text-size-26">{{ selectedProduct.name }}</p>
+
+    <p>{{ selectedProduct.productDescription }}</p>
+
+    <p class="text-size-16 text-bold">{{ selectedProduct.productPrice }}</p>
+
+    <div class="row mx-0">
+      <div class="col-auto p-0">
+        <mat-icon class="icon-color-gold" aria-hidden="false" aria-label="Example home icon" fontIcon="star"></mat-icon>
+      </div>
+      <div class="col">
+        <p>{{ selectedProduct.productRating }}</p>
+      </div>
+    </div>
+
+    <div class="bottom-allign w-100">
+      <button mat-raised-button color="primary" (click)="addToBasket()">Add to basket</button>
+      <button mat-raised-button color="primary" class="ml-3" (click)="returnToProducts()">Return to Products</button>
+    </div>
+  </div>
+</div>

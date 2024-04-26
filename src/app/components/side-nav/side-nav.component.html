@@ -1,0 +1,62 @@
+<div class="main-container">
+  <!-- Header -->
+  <div class="header-container row mx-0 px-3">
+    <div class="col-4 align-content-center">
+      <div class="logo-image pointer" (click)="navigateToHomePage()"></div>
+    </div>
+    <div class="col-8 align-content-center">
+      <div class="row mx-0 align-items-center justify-content-end">
+        <!-- <div class="pointer mr-3 col">
+          <a class="nav-link text-size-14 pb-0 pl-0" [routerLink]="['/home']" routerLinkActive="nav-link-active"
+            [routerLinkActiveOptions]="{exact: true}">Home</a>
+        </div> -->
+        <div class="pointer mr-3 col-auto px-0">
+          <a class="nav-link text-size-14 pb-0 pl-0" [routerLink]="['/products']" routerLinkActive="nav-link-active"
+            [routerLinkActiveOptions]="{exact: true}">Products</a>
+        </div>
+        <div class="pointer mr-3 col-auto px-0">
+          <a class="nav-link text-size-14 pb-0 pl-0" [routerLink]="['/contact-us']" routerLinkActive="nav-link-active"
+            [routerLinkActiveOptions]="{exact: true}">Contact us</a>
+        </div>
+        <div class="col-auto px-0">
+          <button [disabled]="!shoppingCartList.length" class="py-0 pt-1" mat-icon-button [matMenuTriggerFor]="shoppingBasketMenu" aria-label="Menu">
+            <mat-icon [ngClass]="shoppingCartList.length ? 'color-blue' : 'text-danger'">shopping_basket</mat-icon>
+          </button>
+          <mat-menu #shoppingBasketMenu="matMenu" class="menu-panel-class-test">
+            <div *ngFor="let item of shoppingCartList; let last = last" class="px-2">
+              <div class="row mx-0 justify-content-between">
+                <div class="col-3 px-0">
+                  <img src="../../../.././../assets/products/{{ item.imageName }}" class="shopping-cart-image" />
+                </div>
+                <div class="col align-content-center p-0">
+                  <p class="mb-0 mx-2 text-nowrap">{{ item.name }}</p>
+                </div>
+                <div class="col-auto align-content-center px-0">
+                  <mat-icon (click)="$event.stopPropagation(); deleteItemFromBasket(item.productId)" class="text-danger pointer">delete</mat-icon>
+                </div>
+              </div>
+              <mat-divider *ngIf="!last" class="my-3"></mat-divider>
+            </div>
+          </mat-menu>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End of Header -->
+
+  <!-- Body -->
+  <div class="main-content-container">
+    <div class="px-3 main-content">
+      <router-outlet></router-outlet>
+    </div>
+    <!-- End of Body -->
+
+    <!-- Footer -->
+    <div class="footer-container px-3">
+      <div class="row">
+        <p class="mb-0">Add some footer content here</p>
+      </div>
+    </div>
+    <!-- End of Footer -->
+  </div>
+</div>

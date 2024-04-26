@@ -1,0 +1,33 @@
+<div [hidden]="activeScreen !== screenStates.ProductsLandingPage" class="row pt-3">
+  <div *ngFor="let product of productsDataFromResponse" class="col-3 mb-4 product-wrapper">
+    <div class="product-container" (click)="showProductDetails(product)">
+      <div class="product-front p-2">
+        <div class="row mx-0 justify-content-center">
+          <img src="../../../.././../assets/products/{{ product.imageName }}" class="product-image mx-auto" />
+        </div>
+        <div class="row mx-0 bottom-allign w-100 mb-1">
+          <p class="text-center mb-0 text-size-18">{{ product.name }}</p>
+        </div>
+      </div>
+      <div class="product-back p-2">
+          <p class="text-size-20 text-bold text-center">{{ product.name }}</p>
+          <p class="text-center">{{ product.productDescription }}</p>
+
+        <div class="row mx-0 justify-content-center bottom-allign w-100 mb-1">
+          <div class="col-auto p-0">
+            <mat-icon class="icon-color-gold" aria-hidden="false" aria-label="Example home icon"
+              fontIcon="star"></mat-icon>
+          </div>
+          <div class="col-auto">
+            <p class="mb-0">{{ product.productRating }}</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="activeScreen === screenStates.ProductDetailPage" class="pt-3">
+  <app-product-details [selectedProduct]="selectedProductForProductDetails" (returnToProductsEmit)="returnToProducts()"></app-product-details>
+</div>
